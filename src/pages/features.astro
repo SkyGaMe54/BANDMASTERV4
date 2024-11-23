@@ -1,0 +1,220 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+const mainFeatures = [
+  {
+    title: "Signaux de Trading Précis",
+    description: "Des signaux clairs et fiables pour identifier les meilleures opportunités de trading. Optimisé pour réduire les faux signaux et maximiser la précision.",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/Signaux precis.png",
+    highlights: [
+      "Identification des points d'entrée optimaux",
+      "Détection des retournements de tendance",
+      "Filtrage des faux signaux"
+    ]
+  },
+  {
+    title: "Analyse Technique Avancée",
+    description: "Une suite complète d'indicateurs techniques TOUT EN UN pour vous aider à prendre les meilleures décisions de trading, basée sur des algorithmes sophistiqués.",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/Multi paires.png",
+    highlights: [
+      "Analyse multi-temporelle",
+      "Détection fiable des opportunités",
+      "Gestion des risques optimisée"
+    ]
+  }
+];
+
+const technicalFeatures = [
+  {
+    icon: "📊",
+    title: "Indicateurs Avancés",
+    description: "Suite complète d'indicateurs techniques pour une analyse approfondie"
+  },
+  {
+    icon: "🎯",
+    title: "Points d'Entrée Précis",
+    description: "Identification claire des meilleurs moments pour entrer sur le marché"
+  },
+  {
+    icon: "⚡",
+    title: "Alertes en Temps Réel",
+    description: "Notifications instantanées pour ne manquer aucune opportunité"
+  },
+  {
+    icon: "🔄",
+    title: "Multi-Timeframes",
+    description: "Analyse simultanée sur différentes échelles de temps"
+  },
+  {
+    icon: "📱",
+    title: "Plateforme",
+    description: "Compatible avec TradingView"
+  },
+  {
+    icon: "🛡️",
+    title: "Gestion des Risques",
+    description: "Outils intégrés pour une gestion optimale des positions"
+  }
+];
+
+const markets = [
+  { name: "Forex", icon: "💱" },
+  { name: "Indices", icon: "📈" },
+  { name: "Crypto", icon: "₿" },
+  { name: "Actions", icon: "🏢" },
+  { name: "Matières Premières", icon: "🛢️" }
+];
+---
+
+<Layout title="Fonctionnalités - BandMaster">
+  <main class="bg-[#0a0a0a]">
+    <!-- Hero Section -->
+    <section class="relative py-32 overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-0 left-0 w-96 h-96 bg-accent/20 rounded-full filter blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent/20 rounded-full filter blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        </div>
+      </div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-5xl mx-auto">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="w-full md:w-1/2">
+              <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Un algorithme <span class="text-accent">puissant</span> conçu pour la performance
+              </h1>
+              <p class="text-xl text-muted mb-8">
+                BandMaster transforme votre façon de trader, pour maximiser vos profits et détecter les meilleures opportunités du marché.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <Button href="#features" variant="primary">
+                  Explorer les fonctionnalités
+                </Button>
+                <Button href="#" variant="secondary" class="chat-trigger">
+                  Commencer mon essai gratuit
+                </Button>
+              </div>
+            </div>
+            
+            <div class="w-full md:w-1/2">
+              <div class="relative">
+                <div class="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: "🎯", label: "Signaux précis" },
+                    { icon: "⚡", label: "Alertes d'opportunités" },
+                    { icon: "📊", label: "Multi-marchés" },
+                    { icon: "🛡️", label: "Gestion des risques" }
+                  ].map(item => (
+                    <div class="bg-[#0f0f0f]/80 backdrop-blur-sm p-4 rounded-xl border border-accent/20">
+                      <div class="text-2xl mb-2">{item.icon}</div>
+                      <div class="font-medium text-sm">{item.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Features -->
+    <section id="features" class="py-20 relative">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 relative">
+        {mainFeatures.map((feature, index) => (
+          <div class={`flex flex-col lg:flex-row items-center gap-12 ${index !== 0 ? 'mt-32' : ''}`}>
+            <div class={`w-full lg:w-1/2 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <h2 class="text-4xl font-bold mb-6">{feature.title}</h2>
+              <p class="text-xl text-muted mb-8 leading-relaxed">{feature.description}</p>
+              <div class="space-y-4">
+                {feature.highlights.map(highlight => (
+                  <div class="flex items-center gap-4 bg-[#0f0f0f] p-4 rounded-xl border border-accent/20">
+                    <div class="text-accent">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span class="text-lg">{highlight}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div class={`w-full lg:w-1/2 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <div class="relative">
+                <div class="absolute inset-0 bg-accent/20 blur-3xl rounded-full"></div>
+                <img 
+                  src={feature.image} 
+                  alt={feature.title}
+                  class="relative rounded-xl border border-accent/20 shadow-2xl w-full"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Technical Features -->
+    <section class="py-20 relative">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(44,153,113,0.15),transparent_70%)]"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 relative">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          Caractéristiques <span class="text-accent">Techniques</span>
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {technicalFeatures.map(feature => (
+            <div class="bg-[#0f0f0f] p-8 rounded-xl border border-accent/20 hover:border-accent/50 transition-all duration-300">
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-bold mb-3">{feature.title}</h3>
+              <p class="text-muted">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Markets -->
+    <section class="py-20 relative overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 relative">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          Marchés <span class="text-accent">Supportés</span>
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-4xl mx-auto">
+          {markets.map(market => (
+            <div class="bg-[#0f0f0f] p-6 rounded-xl text-center border border-accent/20 hover:border-accent/50 transition-all duration-300">
+              <div class="text-3xl mb-3">{market.icon}</div>
+              <div class="font-medium">{market.name}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  // Chat trigger
+  document.querySelectorAll('.chat-trigger').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (window.Tawk_API) {
+        Tawk_API.maximize();
+      }
+    });
+  });
+</script>

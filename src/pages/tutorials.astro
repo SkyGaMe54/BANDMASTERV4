@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+const tutorials = [
+  {
+    title: "Installation de l'indicateur",
+    description: "Guide étape par étape pour installer BandMaster sur TradingView",
+    duration: "5 min",
+    level: "Débutant",
+    icon: "🔧"
+  },
+  {
+    title: "Configuration optimale",
+    description: "Apprenez à configurer l'indicateur selon votre style de trading",
+    duration: "10 min",
+    level: "Intermédiaire",
+    icon: "⚙️"
+  },
+  {
+    title: "Lecture des signaux",
+    description: "Maîtrisez l'interprétation des différents signaux",
+    duration: "15 min",
+    level: "Intermédiaire",
+    icon: "📊"
+  },
+  {
+    title: "Gestion des risques",
+    description: "Stratégies de money management avec BandMaster",
+    duration: "20 min",
+    level: "Avancé",
+    icon: "🛡️"
+  }
+];
+---
+
+<Layout title="Tutoriels - BandMaster">
+  <main class="bg-primary">
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Centre d'<span class="text-accent">Apprentissage</span>
+          </h1>
+          <p class="text-xl text-muted">
+            Maîtrisez BandMaster avec nos guides détaillés
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {tutorials.map(tutorial => (
+            <div class="bg-secondary p-8 rounded-xl border border-accent/20 hover:border-accent transition-all duration-300 hover:-translate-y-1">
+              <div class="flex items-start gap-4">
+                <div class="text-4xl">{tutorial.icon}</div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold mb-2">{tutorial.title}</h3>
+                  <p class="text-muted mb-4">{tutorial.description}</p>
+                  <div class="flex items-center gap-4 text-sm">
+                    <span class="bg-primary px-3 py-1 rounded-full">⏱️ {tutorial.duration}</span>
+                    <span class="bg-primary px-3 py-1 rounded-full">📚 {tutorial.level}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-16 text-center">
+          <Button href="#" variant="primary" class="chat-trigger">
+            Besoin d'aide supplémentaire ?
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.querySelectorAll('.chat-trigger').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (window.Tawk_API) {
+        Tawk_API.maximize();
+      }
+    });
+  });
+</script>

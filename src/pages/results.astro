@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const results = [
+  {
+    pair: "BTC/USD",
+    profit: "RR6 EN DAILY",
+    date: "12-10-2024",
+    type: "Long",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/BTC DAILY rr6.5.png"
+  },
+  {
+    pair: "GBP/USD",
+    profit: "RR2.5 EN H1",
+    date: "24-10-2024",
+    type: "Long",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/GBPUSD H1 RR2.5.png"
+  },
+  {
+    pair: "GOLD",
+    profit: "RR8 EN H1",
+    date: "14-11-2024",
+    type: "Long",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/GOLD H1 RR8.png"
+  },
+  {
+    pair: "NAS100",
+    profit: "RR 3.70 EN M5",
+    date: "22-11-2024",
+    type: "Long",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/NAS100 M5 RR 3.70.png"
+  },
+  {
+    pair: "DOGE",
+    profit: "RR 17 EN DAILY +250%",
+    date: "22-11-2024",
+    type: "Long",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/DOGE DAILY RR17.png"
+  },
+  {
+    pair: "US30",
+    profit: "RR4 EN M5",
+    date: "22-11-2024",
+    type: "Short",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/US30 M5 RR4.png"
+  }
+];
+
+const clientResults = [
+  {
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/2024-11-23 11.36.33.jpg",
+    profit: "+161€",
+    period: "1 jour "
+  },
+  {
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/File.jpg",
+    profit: "+141€",
+    period: "1 jour"
+  },
+  {
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/IMG_2830.png",
+    profit: "+298€",
+    period: "1 jour"
+  },
+  {
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/passed_eval.png",
+    profit: "Propfirm validé",
+    period: "1 semaine"
+  }
+];
+
+const stats = [
+  { value: 90, label: "Taux de réussite", symbol: "%" },
+  { value: 4, label: "Ratio Risque/Reward moyen", symbol: "" },
+  { value: 21, label: "Traders satisfaits", symbol: "+" }
+];
+
+const testimonials = [
+  {
+    name: "Omar",
+    role: "Trader indices",
+    content: "Un plaisir d’apprendre avec vous je me sens apaisé c’est discipline de haut niveau bravo pour votre travail excellent 👌",
+    stats: {
+      profit: "En demo",
+      period: "1 semaine",
+      market: "NAS100"
+    }
+  },
+  {
+    name: "Zoé",
+    role: "Tradeuse indices",
+    content: "Tellement plus simple quand tu as des enfants. Un gagne temps inexplicable",
+    stats: {
+      profit: "+215€",
+      period: "1 jours",
+      market: "NAS100"
+    }
+  },
+  {
+    name: "Dimitri",
+    role: "Trader Indices",
+    content: "j'ai fait 50 euros dessus, donc c'est déjà bien en 48 heures sur un compte réel. C'est déjà plus que ce que j'ai gagné sur mon propre compte",
+    stats: {
+      profit: "+50€",
+      period: "2 jours",
+      market: "US30"
+    }
+  }
+];
+---
+
+<Layout title="Résultats - BandMaster">
+  <main class="bg-[#0a0a0a]">
+    <!-- Stats Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Nos <span class="text-accent">Résultats</span>
+          </h1>
+          <p class="text-xl text-muted">
+            Découvrez les performances de BandMaster
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          {stats.map(stat => (
+            <div class="relative group">
+              <div class="absolute -inset-0.5 bg-accent opacity-0 group-hover:opacity-75 transition duration-300 rounded-xl blur-md"></div>
+              <div class="absolute -inset-1 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-50 transition duration-300 rounded-xl blur-lg"></div>
+              <div class="relative bg-[#0f0f0f] p-8 rounded-xl text-center transform hover:scale-105 transition-all duration-300 border border-accent/20 group-hover:border-accent/50">
+                <div class="text-4xl font-bold text-accent mb-2">
+                  {stat.value}{stat.symbol}
+                </div>
+                <div class="text-muted">{stat.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Client Results -->
+        <h2 class="text-3xl font-bold text-center mb-12">Résultats de nos Clients</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+          {clientResults.map(result => (
+            <div class="relative group">
+              <div class="absolute -inset-0.5 bg-accent opacity-0 group-hover:opacity-75 transition duration-300 rounded-xl blur-md"></div>
+              <div class="absolute -inset-1 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-50 transition duration-300 rounded-xl blur-lg"></div>
+              <div class="relative bg-[#0f0f0f] rounded-xl overflow-hidden border border-accent/20 group-hover:border-accent/50 transition-all duration-300">
+                <div class="aspect-[2/4]">
+                  <img 
+                    src={result.image} 
+                    alt="Résultat client"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-black/80 backdrop-blur-sm p-4">
+                  <div class="text-xl font-bold text-accent mb-1">{result.profit}</div>
+                  <div class="text-sm text-muted">{result.period}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Recent Results Grid -->
+        <h2 class="text-3xl font-bold text-center mb-12">Derniers Signaux</h2>
+        <div class="grid md:grid-cols-2 gap-8 mb-20">
+          {results.map(result => (
+            <div class="bg-[#0f0f0f] rounded-xl overflow-hidden border border-accent/20 hover:border-accent transition-all duration-300 hover:-translate-y-1">
+              <img 
+                src={result.image} 
+                alt={`Signal ${result.pair}`}
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                  <h3 class="text-xl font-bold">{result.pair}</h3>
+                  <span class={`font-bold ${result.type === "Long" ? "text-green-500" : "text-red-500"}`}>
+                    {result.profit}
+                  </span>
+                </div>
+                <div class="flex justify-between text-sm text-muted">
+                  <span>{result.date}</span>
+                  <span class={`px-3 py-1 rounded-full ${result.type === "Long" ? "bg-green-500/10 text-green-500" : "bg-red-500/10 text-red-500"}`}>
+                    {result.type}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Testimonials Section -->
+        <h2 class="text-3xl font-bold text-center mb-12">Témoignages de Traders</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          {testimonials.map(testimonial => (
+            <div class="bg-[#0f0f0f] rounded-xl p-8 border border-accent/20 hover:border-accent transition-all duration-300">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                  <span class="text-xl">{testimonial.name[0]}</span>
+                </div>
+                <div>
+                  <h3 class="font-bold">{testimonial.name}</h3>
+                  <p class="text-sm text-muted">{testimonial.role}</p>
+                </div>
+              </div>
+              <p class="text-muted mb-6">{testimonial.content}</p>
+              <div class="grid grid-cols-3 gap-4 pt-6 border-t border-accent/20">
+                <div class="text-center">
+                  <div class="text-accent font-bold">{testimonial.stats.profit}</div>
+                  <div class="text-xs text-muted">Profit</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-accent font-bold">{testimonial.stats.period}</div>
+                  <div class="text-xs text-muted">Période</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-accent font-bold">{testimonial.stats.market}</div>
+                  <div class="text-xs text-muted">Marché</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

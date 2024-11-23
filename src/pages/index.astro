@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+// Les constantes restent identiques...
+const stats = [
+  { value: 90, label: 'Précision', symbol: '%' },
+  { value: 24, label: 'Support communautaire', symbol: '/7' },
+  { value: 21, label: 'Traders actifs', symbol: '+' }
+];
+
+const features = [
+  {
+    title: "Expertise Professionnelle",
+    description: "Développé par des traders expérimentés pour maximiser vos performances",
+    icon: "📈"
+  },
+  {
+    title: "Simplicité et Précision",
+    description: "Analyse claire et accessible à tous pour une prise en main rapide",
+    icon: "🎯"
+  },
+  {
+    title: "Communauté Active",
+    description: "Accédez à un support dédié et échangez avec d'autres traders",
+    icon: "👥"
+  }
+];
+
+const testimonials = [
+  {
+    name: "Zoé",
+    role: "Tradeuse Indices",
+    content: "J'ai passer la journée IKEA monte des meuble entre temps j'encaisse sans analyse sans rien quelle bonheur",
+    stats: {
+      profit: "+382€",
+      period: "3 jours",
+      market: "NAS100"
+    }
+  },
+  {
+    name: "Florian C.",
+    role: "Trader Future",
+    content: "grace a l'indicateur, une pf de valider hier. J’ai fait 500$ en futur ce matin et 70 en fond propre",
+    stats: {
+      profit: "+4873€",
+      period: "1 semaine",
+      market: "EUR/USD"
+    }
+  }
+];
+
+const results = [
+  {
+    pair: "BTC/USD",
+    profit: "RR6 EN DAILY",
+    date: "12-10-2024",
+    type: "Long",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/BTC DAILY rr6.5.png"
+  },
+  {
+    pair: "GBP/USD",
+    profit: "RR2.5 EN H1",
+    date: "24-10-2024",
+    type: "Long",
+    image: "https://raw.githubusercontent.com/SkyGaMe54/BANDMASTER2/main/public/images/GBPUSD H1 RR2.5.png"
+  }
+];
+---
+
+<Layout title="BandMaster - L'indicateur de trading de confiance">
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a0a0a]">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(44,153,113,0.15),transparent_50%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(44,153,113,0.1),transparent_50%)]"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+            Le trading <span class="text-accent">simplifié</span> pour tous
+          </h1>
+          <p class="text-xl md:text-2xl text-muted mb-12 leading-relaxed">
+            Plus besoin d'être un expert pour réussir, BandMaster fait le travail complexe pour vous.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button href="#" variant="primary" class="text-lg chat-trigger">
+              Commencer maintenant
+            </Button>
+            <Button href="/features" variant="secondary" class="text-lg">
+              Découvrir les fonctionnalités
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section with Enhanced Hover Effect -->
+    <section class="py-20 bg-[#0a0a0a] relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent"></div>
+      <div class="container mx-auto px-4 relative">
+        <div class="grid md:grid-cols-3 gap-8">
+          {stats.map(stat => (
+            <div class="relative group">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-75 transition duration-300 rounded-xl blur-lg"></div>
+              <div class="absolute -inset-1 bg-gradient-to-br from-accent/50 to-accent-light/30 opacity-0 group-hover:opacity-30 transition duration-300 rounded-xl blur-2xl"></div>
+              <div class="relative bg-[#0f0f0f] p-8 rounded-xl text-center transform hover:scale-105 transition-all duration-300 border border-accent/20 group-hover:border-accent/50 backdrop-blur-sm">
+                <div class="text-4xl md:text-5xl font-bold text-accent mb-2 group-hover:text-white transition-colors">
+                  {stat.value}{stat.symbol}
+                </div>
+                <div class="text-muted group-hover:text-white/80 transition-colors">{stat.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Results with Enhanced Design -->
+    <section class="py-20 bg-[#0a0a0a] relative">
+      <div class="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent"></div>
+      <div class="container mx-auto px-4 relative">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+          Derniers <span class="text-accent">Résultats</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {results.map(result => (
+            <div class="group bg-[#0f0f0f] rounded-xl overflow-hidden border border-accent/20 hover:border-accent transition-all duration-300 hover:-translate-y-1 relative">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <img 
+                src={result.image} 
+                alt={`Signal ${result.pair}`}
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6 relative">
+                <div class="flex justify-between items-center mb-4">
+                  <h3 class="text-xl font-bold group-hover:text-accent transition-colors">{result.pair}</h3>
+                  <span class={`font-bold ${result.type === "Long" ? "text-green-500" : "text-red-500"}`}>
+                    {result.profit}
+                  </span>
+                </div>
+                <div class="flex justify-between text-sm text-muted">
+                  <span>{result.date}</span>
+                  <span class={`px-3 py-1 rounded-full ${result.type === "Long" ? "bg-green-500/10 text-green-500" : "bg-red-500/10 text-red-500"}`}>
+                    {result.type}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="text-center mt-12">
+          <Button href="/results" variant="secondary">
+            Voir tous les résultats
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid with Enhanced Design -->
+    <section class="py-20 bg-[#0a0a0a] relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent"></div>
+      <div class="container mx-auto px-4 relative">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+          Pourquoi choisir <span class="text-accent">BandMaster</span> ?
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {features.map(feature => (
+            <div class="relative group">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-75 transition duration-300 rounded-xl blur-lg"></div>
+              <div class="absolute -inset-1 bg-gradient-to-br from-accent/50 to-accent-light/30 opacity-0 group-hover:opacity-30 transition duration-300 rounded-xl blur-2xl"></div>
+              <div class="relative bg-[#0f0f0f] p-8 rounded-xl border border-accent/20 group-hover:border-accent/50 transition-all duration-300">
+                <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">{feature.icon}</div>
+                <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition-colors">{feature.title}</h3>
+                <p class="text-muted group-hover:text-white/80 transition-colors">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials with Enhanced Design -->
+    <section class="py-20 bg-[#0a0a0a] relative">
+      <div class="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent"></div>
+      <div class="container mx-auto px-4 relative">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+          Ce qu'en disent nos <span class="text-accent">utilisateurs</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {testimonials.map(testimonial => (
+            <div class="relative group">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-75 transition duration-300 rounded-xl blur-lg"></div>
+              <div class="absolute -inset-1 bg-gradient-to-br from-accent/50 to-accent-light/30 opacity-0 group-hover:opacity-30 transition duration-300 rounded-xl blur-2xl"></div>
+              <div class="relative bg-[#0f0f0f] p-8 rounded-xl border border-accent/20 group-hover:border-accent/50">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center group-hover:bg-accent/30 transition-colors">
+                    <span class="text-xl group-hover:text-white transition-colors">{testimonial.name[0]}</span>
+                  </div>
+                  <div>
+                    <h3 class="font-bold group-hover:text-accent transition-colors">{testimonial.name}</h3>
+                    <p class="text-sm text-muted">{testimonial.role}</p>
+                  </div>
+                </div>
+                <p class="text-muted group-hover:text-white/80 transition-colors mb-6">{testimonial.content}</p>
+                <div class="grid grid-cols-3 gap-4 pt-6 border-t border-accent/20">
+                  <div class="text-center">
+                    <div class="text-accent font-bold group-hover:text-white transition-colors">{testimonial.stats.profit}</div>
+                    <div class="text-xs text-muted">Profit</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-accent font-bold group-hover:text-white transition-colors">{testimonial.stats.period}</div>
+                    <div class="text-xs text-muted">Période</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-accent font-bold group-hover:text-white transition-colors">{testimonial.stats.market}</div>
+                    <div class="text-xs text-muted">Marché</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section with Enhanced Design -->
+    <section class="py-20 bg-[#0a0a0a] relative overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(44,153,113,0.15),transparent_70%)]"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Prêt à transformer votre trading ?
+          </h2>
+          <p class="text-xl text-muted mb-8">
+            Rejoignez les traders qui ont déjà amélioré leurs performances avec BandMaster
+          </p>
+          <Button href="#" variant="primary" class="text-lg chat-trigger">
+            Commencer maintenant
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  // Chat trigger
+  document.querySelectorAll('.chat-trigger').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (window.Tawk_API) {
+        Tawk_API.maximize();
+      }
+    });
+  });
+</script>
